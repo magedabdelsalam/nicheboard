@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Avatar from './Avatar'
 
 export default function JobList({ jobs }) {
+  console.log('Jobs received in JobList:', jobs)
+
   return (
     <div className="space-y-4">
       {jobs.map((job) => (
