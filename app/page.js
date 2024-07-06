@@ -12,14 +12,21 @@ export default async function Home() {
 }
 
 async function getData() {
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'
-  const host = process.env.VERCEL_URL || 'localhost:3000'
-  const res = await fetch(`${protocol}://${host}/api/jobs`, { cache: 'no-store' })
-  if (!res.ok) {
-    console.error('Failed to fetch data:', res.statusText)
-    return []  // Return an empty array if there's an error
+  const isProduction = process.env.VERCEL_ENV === 'production'
+  const apiUrl = isProduction
+    ? `https://${process.env.VERCEL_URL}/api/jobs`
+    : 'http://localhost:3000/api/jobs'
+
+  try {
+    const res = await fetch(apiUrl, { cache: 'no-store' })
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`)
+    }
+    const data = await res.json()
+    console.log('Fetched jobs:', data)
+    return data
+  } catch (error) {
+    console.error('Error fetching jobs:', error)
+    return []
   }
-  return res.json()
 }
-
-
