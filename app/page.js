@@ -18,6 +18,8 @@ async function getData() {
     ? `https://${process.env.VERCEL_URL}/api/jobs`
     : 'http://localhost:3000/api/jobs'
 
+  console.log('Fetching jobs from:', apiUrl)
+
   try {
     const res = await fetch(apiUrl, { cache: 'no-store' })
     if (!res.ok) {
@@ -31,4 +33,3 @@ async function getData() {
     return []
   }
 }
-
