@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import { createClient } from '../../utils/supabase/client'
 import Image from 'next/image'
+import { useSnackbar } from '../../components/snackbar'
 
 export default function Avatar({ uid, url, size, onUpload }) {
   const supabase = createClient()
   const [avatarUrl, setAvatarUrl] = useState(url)
   const [uploading, setUploading] = useState(false)
+  const { showSnackbar } = useSnackbar()
 
   useEffect(() => {
     async function downloadImage(path) {
@@ -46,7 +48,7 @@ export default function Avatar({ uid, url, size, onUpload }) {
 
       onUpload(filePath)
     } catch (error) {
-      alert('Error uploading avatar!')
+      showSnackbar('Error uploading avatar!', 'error')
     } finally {
       setUploading(false)
     }
