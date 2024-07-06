@@ -1,13 +1,16 @@
-import Header from '/components/Header'
+import HeaderWrapper from '/components/Header/header-wrapper'
 import Footer from '/components/Footer'
+import '/app/globals.css'
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Header/>
+      <body className="min-h-screen bg-gray-100">
+        <HeaderWrapper />
+        <main className="container mx-auto px-4 py-8">
         {children}
-        <Footer/>
+        </main>
+        <Footer />
       </body>
     </html>
   )

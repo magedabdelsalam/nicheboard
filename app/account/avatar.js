@@ -1,11 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '../../utils/supabase/client'
 import Image from 'next/image'
 
 export default function Avatar({ uid, url, size, onUpload }) {
-  const supabase = createClientComponentClient()
-  const [avatarUrl, setAvatarUrl] = useState(null)
+  const supabase = createClient()
+  const [avatarUrl, setAvatarUrl] = useState(url)
   const [uploading, setUploading] = useState(false)
 
   useEffect(() => {
