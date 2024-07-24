@@ -15,9 +15,8 @@ export default async function Home() {
 }
 
 async function getData() {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const apiUrl = isProduction
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/api/jobs`
+  const apiUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}/api/jobs`
     : 'http://localhost:3000/api/jobs'
 
   console.log('Fetching jobs from:', apiUrl)
@@ -35,4 +34,3 @@ async function getData() {
     return []
   }
 }
-
