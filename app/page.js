@@ -4,9 +4,11 @@ export default async function Home() {
   const data = await getData()
   console.log('Data received in Home:', data)
   return (
-    <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Welcome to Nicheboard</h1>
-      <p className="text-xl">Find your next niche job opportunity</p>
+    <div className="flex flex-col gap-8 max-w-2xl mx-auto">
+      <div className="flex flex-col gap-2">
+        <h1 className="text-3xl font-bold">Nicheboard</h1>
+        <p className="text-xl text-gray-300">Find your people</p>
+      </div>
       <JobList jobs={data} />
     </div>
   )

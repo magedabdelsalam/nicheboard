@@ -61,7 +61,7 @@ export default function JobForm({ user }) {
           onChange={handleChange}
           placeholder="Job Title"
           required
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white"
         />
         <textarea
           name="description"
@@ -69,7 +69,7 @@ export default function JobForm({ user }) {
           onChange={handleChange}
           placeholder="Job Description"
           required
-          className="w-full p-2 border rounded h-32"
+          className="w-full p-2 border rounded h-32 dark:bg-gray-700 dark:text-white"
         />
         <input
           type="text"
@@ -78,7 +78,7 @@ export default function JobForm({ user }) {
           onChange={handleChange}
           placeholder="Company"
           required
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white"
         />
         <input
           type="text"
@@ -87,7 +87,7 @@ export default function JobForm({ user }) {
           onChange={handleChange}
           placeholder="Location"
           required
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white"
         />
         <input
           type="number"
@@ -98,12 +98,12 @@ export default function JobForm({ user }) {
           min="0"
           step="1000"
           required
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white"
         />
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full p-2 text-white rounded ${isSubmitting ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'}`}
+          className={`w-full p-2 text-white rounded ${isSubmitting ? 'bg-gray-400 dark:bg-gray-600' : 'bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700'}`}
         >
           {isSubmitting ? 'Adding...' : 'Add Job'}
         </button>
