@@ -15,10 +15,7 @@ export default async function Home() {
 }
 
 async function getData() {
-  const apiUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/jobs`
-    : 'http://localhost:3000/api/jobs'
-
+  const apiUrl = getApiUrl()
   console.log('Fetching jobs from:', apiUrl)
 
   try {
@@ -33,4 +30,14 @@ async function getData() {
     console.error('Error fetching jobs:', error)
     return []
   }
+}
+
+function getApiUrl() {
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/jobs`
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}/api/jobs`
+  }
+  return 'http://localhost:3000/api/jobs'
 }
