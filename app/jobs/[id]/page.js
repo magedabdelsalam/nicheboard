@@ -55,7 +55,10 @@ function JobDetail({ label, value }) {
 }
 
 async function getJob(id) {
-  const apiUrl = getApiUrl(`/api/jobs/${id}`)
+  const apiUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/jobs/${id}`
+    : `http://localhost:3000/api/jobs/${id}`
+
   console.log('Fetching job from:', apiUrl)
 
   const res = await fetch(apiUrl, { cache: 'no-store' })
@@ -64,14 +67,4 @@ async function getJob(id) {
     throw new Error('Failed to fetch job')
   }
   return res.json()
-}
-
-function getApiUrl(path) {
-  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}${path}`
-  }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}${path}`
-  }
-  return `http://localhost:3000${path}`
 }
