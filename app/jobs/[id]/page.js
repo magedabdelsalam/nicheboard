@@ -61,7 +61,7 @@ async function getJob(id) {
 
   console.log('Fetching job from:', apiUrl)
 
-  const res = await fetch(apiUrl, { cache: 'no-store' })
+  const res = await fetch(apiUrl, { next: { revalidate: 60 } })
   if (!res.ok) {
     if (res.status === 404) return null
     throw new Error('Failed to fetch job')

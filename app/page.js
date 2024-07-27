@@ -22,7 +22,7 @@ async function getData() {
   console.log('Fetching jobs from:', apiUrl)
 
   try {
-    const res = await fetch(apiUrl, { cache: 'no-store' })
+    const res = await fetch(apiUrl, { next: { revalidate: 60 } })
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`)
     }
