@@ -55,8 +55,8 @@ function JobDetail({ label, value }) {
 }
 
 async function getJob(id) {
-  const apiUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/jobs/${id}`
+  const apiUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/api/jobs/${id}`
     : `http://localhost:3000/api/jobs/${id}`
 
   console.log('Fetching job from:', apiUrl)
