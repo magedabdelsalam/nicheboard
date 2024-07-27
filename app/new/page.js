@@ -11,8 +11,8 @@ export default async function NewJob() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Post a New Job</h1>
+    <div className="mx-auto">
+      <h1 className="text-3xl font-bold mb-6 dark:text-white">Post a New Job</h1>
       <JobForm user={user} />
     </div>
   )
