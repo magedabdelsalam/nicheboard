@@ -16,7 +16,7 @@ export default async function JobPage({ params }) {
   })
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="mx-auto">
       <div className="bg-white dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden">
         <div className="p-6">
           <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">{job.title}</h1>

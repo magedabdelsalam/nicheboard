@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
       <CSPostHogProvider>
       <body className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-800 dark:text-white">
         <HeaderWrapper />
-        <main className="flex-grow container mx-auto px-4 py-8">
+        <main className="flex-grow container mx-auto px-2 py-8">
         {children}
         </main>
         <Footer />

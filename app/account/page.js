@@ -11,7 +11,7 @@ export default async function Account() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="mx-auto">
       <h1 className="text-3xl font-bold mb-6">Account Settings</h1>
       <AccountForm user={user} />
     </div>

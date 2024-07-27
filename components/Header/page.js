@@ -25,18 +25,18 @@ export default function Header({ user }) {
   }
 
   return (
-    <nav className="bg-gray-800 dark:bg-gray-900 text-white p-4">
+    <nav className="bg-white text-gray-800 dark:bg-gray-900 dark:text-white px-2 py-4">
       <div className="flex container mx-auto justify-between items-center">
         <Link href="/" className="text-xl font-bold">Nicheboard</Link>
         <div className="space-x-8 flex items-center">
           {user ? (
             <>
-              <Link href="/new" className="hover:text-gray-300">New Job</Link>
-              <Link href="/account" className="hover:text-gray-300">Account</Link>
+              <Link href="/new" className="hover:text-gray-400">New Job</Link>
+              <Link href="/account" className="hover:text-gray-400">Account</Link>
               <SignOut />
             </>
           ) : (
-            <Link href="/login" className="hover:text-gray-300">Login/Signup</Link>
+            <Link href="/login" className="hover:text-gray-400">Login/Signup</Link>
           )}
           <button onClick={toggleDarkMode} className="p-2 rounded-full bg-gray-700 dark:bg-gray-600">
             {darkMode ? '🌞' : '🌙'}

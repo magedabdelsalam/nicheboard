@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 dark:bg-gray-900 text-white py-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-white text-gray-800 dark:bg-gray-900 dark:text-white py-8">
+      <div className="container mx-auto px-2">
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
             <h3 className="text-lg font-semibold mb-2">Nicheboard</h3>
